@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<div class="wrapper container-fluid" ng-controller="photoDataController">
+    <section class="main row">
+        <div class="col-4">
+            <input type="text" placeholder="Search for a Github user..." ng-model="searchQuery"
+                   ng-model-options="{debounce:500}" class="search-input">
+        </div>
+        <div class="col-8 d-flex flex-column justify-content-center">
+
+            <div class="start-page" ng-if="searchQuery === ''">
+                <p>We have no photos for you now. Please, search for a new user.</p>
+            </div>
+            <div class="image-container">
+                <div class="image-item" ng-repeat="photo in photos">
+                    <img src="{{photo.urls.small}}" alt="item">
+                </div>
+                <div class="image-item" ng-repeat="newPhoto in newPhotos">
+                    <img src="{{newPhoto.urls.small}}" alt="item">
+                </div>
+            </div>
+
+            <div class="btn-container align-self-center" ng-if="searchQuery">
+                <button class="btn-more" ng-click="getMore()">More</button>
+            </div>
+
+
+        </div>
+    </section>
+    <footer class="footer container-fluid" ng-if="searchQuery === ''">
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="col-1 offset-1">
+                <a  href="https://www.facebook.com" class="icons" ng-style="{'background-color': '#3b5998'}"><i class="fa fa-facebook"></i></a>
+            </div>
+            <div class="col-1 offset-1">
+                <a  href="https://www.youtube.com" class="icons" ng-style="{'background-color': '#c4302b'}"><i class="fa fa-youtube-play"></i></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <p class="footer-quote text-center"><i class="fa fa-copyright"></i><span> 2019 Unsplash, Inc.</span></p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script src="app.js"></script>
+<script src="controllers/controllers.js"></script>
+<script src="controllers/photoDataController.js"></script>
+
+<script src="core/version/version.js"></script>
+<script src="core/version/version-directive.js"></script>
+<script src="core/version/interpolate-filter.js"></script>
+</body>
+</html>

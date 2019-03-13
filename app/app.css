@@ -1,0 +1,128 @@
+/* app css stylesheet */
+
+.wrapper {
+    height: 100vh;
+    font-size: 0.9rem;
+    font-weight: lighter;
+}
+
+.main {
+    padding-top: 2rem;
+    height: 37rem;
+}
+
+.search-input {
+    border-radius: 3px;
+    border: silver 1px solid;
+    overflow: hidden;
+
+    width: 80%;
+    min-width: 13rem;
+
+    padding-left: 0.5rem;
+    height: 2rem;
+}
+
+.search-input::-webkit-input-placeholder,
+.search-input::-webkit-input-placeholder,
+.search-input::-webkit-input-placeholder {
+    color: rgba(97, 97, 97, 0.63);
+    font-weight: lighter;
+}
+
+.search-input:focus {
+    outline: #93a8fc 3px auto;
+    overflow: hidden;
+}
+
+.start-page {
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+.image-container {
+    column-gap: 0.8rem;
+    column-count: 3;
+
+}
+
+.image-item {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 1rem;
+}
+
+.image-item img {
+    width: 100%;
+}
+
+.btn-more {
+    background-color: transparent;
+
+    border-radius: 3px;
+    border: silver 1px solid;
+
+    height: 2rem;
+    width: 4rem;
+
+    margin-bottom: 1.5rem;
+
+    font-weight: inherit;
+}
+
+.btn-more:active, .btn-more:hover, .btn-more:focus {
+    outline: none;
+}
+
+.btn-more:active {
+    background-color: #e2e2e2;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.icons:hover, .icons:focus {
+    text-decoration: none;
+
+    animation: flash 0.5s;
+    -webkit-animation: flash 0.5s;
+}
+
+.icons i {
+    font-size: 1.5rem;
+    color: white;
+
+}
+
+@keyframes flash {
+    from,
+    50%,
+    to {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.7;
+    }
+}
+
+@-webkit-keyframes flash {
+    from,
+    50%,
+    to {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.7;
+    }
+}
