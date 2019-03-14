@@ -27,7 +27,7 @@
     <section class="main row">
         <div class="col-4">
             <input type="text" placeholder="Search for a Github user..." ng-model="searchQuery"
-                   ng-model-options="{debounce:500}" class="search-input">
+                   ng-model-options="{debounce:700}" ng-change="limitReset()" class="search-input">
         </div>
         <div class="col-8 d-flex flex-column justify-content-center">
 
@@ -35,16 +35,13 @@
                 <p>We have no photos for you now. Please, search for a new user.</p>
             </div>
             <div class="image-container">
-                <div class="image-item" ng-repeat="photo in photos">
+                <div class="image-item" ng-repeat="photo in photos | limitTo: limit">
                     <img src="{{photo.urls.small}}" alt="item">
-                </div>
-                <div class="image-item" ng-repeat="newPhoto in newPhotos">
-                    <img src="{{newPhoto.urls.small}}" alt="item">
                 </div>
             </div>
 
             <div class="btn-container align-self-center" ng-if="searchQuery">
-                <button class="btn-more" ng-click="getMore()">More</button>
+                <button class="btn-more" ng-click="getMore($event)">More</button>
             </div>
 
 
@@ -74,6 +71,7 @@
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

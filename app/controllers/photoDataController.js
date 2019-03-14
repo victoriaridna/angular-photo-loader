@@ -11,10 +11,21 @@ var app = angular.module('app.controllers.data', [])
                 }
             );
 
+            $scope.limit = 4;
 
-            $scope.getMore = () => {
-                $http.get('https://api.unsplash.com/search/photos?client_id=' + clientId + '&query=' + $scope.searchQuery)
-                    .then(response => $scope.newPhotos = response.data.results)
+            $scope.getMore = (event) => {
+                $scope.limit += 2;
+                if ($scope.limit > 10) {
+                    let btn = event.target;
+                    btn.innerHTML = 'That\'s all';
+                    btn.disabled = true;
+                    btn.style.color = '#000';
+                    btn.style.border= 'none';
+                }
+            };
+
+            $scope.limitReset = () => {
+                $scope.limit = 4
             }
         }
     );

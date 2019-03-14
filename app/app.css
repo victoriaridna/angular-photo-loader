@@ -57,6 +57,28 @@
     width: 100%;
 }
 
+/*___image animation___*/
+
+.image-item.ng-enter {
+    transition: 0.7s ease opacity;
+    opacity: 0;
+}
+
+.image-item.ng-enter-active {
+    opacity: 1;
+}
+
+.image-item.ng-leave {
+    transition: 0.3s ease opacity;
+    opacity: 1;
+}
+
+.image-item.ng-leave-active {
+    opacity: 0;
+}
+
+/*___end image animation___*/
+
 .btn-more {
     background-color: transparent;
 
