@@ -57,27 +57,27 @@
     width: 100%;
 }
 
-/*___image animation___*/
+/*___ start-page and image animation___*/
 
-.image-item.ng-enter {
+.image-item.ng-enter, .start-page.ng-enter {
     transition: 0.7s ease opacity;
     opacity: 0;
 }
 
-.image-item.ng-enter-active {
+.image-item.ng-enter-active, .start-page.ng-enter-active {
     opacity: 1;
 }
 
-.image-item.ng-leave {
+.image-item.ng-leave, .start-page.ng-leave {
     transition: 0.3s ease opacity;
     opacity: 1;
 }
 
-.image-item.ng-leave-active {
+.image-item.ng-leave-active, .start-page.ng-leave-active {
     opacity: 0;
 }
 
-/*___end image animation___*/
+/*___end start-page and image animation___*/
 
 .btn-more {
     background-color: transparent;
