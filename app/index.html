@@ -23,17 +23,19 @@
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+
 <div class="wrapper container-fluid" ng-controller="photoDataController">
     <section class="main row">
         <div class="col-4">
             <input type="text" placeholder="Search for a Github user..." ng-model="searchQuery"
                    ng-model-options="{debounce:1000}" ng-change="limitReset()" class="search-input">
+            <a href="/?search={{searchQuery}}" ng-click="find()">Search</a>
         </div>
         <div class="col-8 d-flex flex-column justify-content-center">
-
             <div class="start-page" ng-if="searchQuery === ''">
                 <p>We have no photos for you now. Please, search for a new user.</p>
             </div>
+
             <div class="image-container">
                 <div class="image-item" ng-repeat="photo in photos | limitTo: limit">
                     <img src="{{photo.urls.small}}" alt="item">
@@ -43,20 +45,21 @@
             <div class="btn-container align-self-center" ng-if="searchQuery">
                 <button class="btn-more" ng-click="getMore($event)">More</button>
             </div>
-
-
         </div>
     </section>
     <footer class="footer container-fluid" ng-if="searchQuery === ''">
         <div class="row justify-content-center">
             <div class="col-1">
-                <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}"><i
+                    class="fa fa-twitter"></i></a>
             </div>
             <div class="col-1 offset-1">
-                <a  href="https://www.facebook.com" class="icons" ng-style="{'background-color': '#3b5998'}"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com" class="icons" ng-style="{'background-color': '#3b5998'}"><i
+                    class="fa fa-facebook"></i></a>
             </div>
             <div class="col-1 offset-1">
-                <a  href="https://www.youtube.com" class="icons" ng-style="{'background-color': '#c4302b'}"><i class="fa fa-youtube-play"></i></a>
+                <a href="https://www.youtube.com" class="icons" ng-style="{'background-color': '#c4302b'}"><i
+                    class="fa fa-youtube-play"></i></a>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -65,12 +68,12 @@
             </div>
         </div>
     </footer>
-
 </div>
 
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -85,6 +88,7 @@
 
 <script src="app.js"></script>
 <script src="controllers/controllers.js"></script>
+<!--<script src="controllers/mainController.js"></script>-->
 <script src="controllers/photoDataController.js"></script>
 
 <script src="core/version/version.js"></script>
