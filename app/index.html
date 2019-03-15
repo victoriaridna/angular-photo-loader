@@ -14,6 +14,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <!--------------------styles-------------------->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,30 +27,24 @@
 </head>
 <body>
 
-<div class="wrapper container-fluid" ng-controller="photoDataController">
+<div class="wrapper container-fluid" ng-controller="mainController">
     <section class="main row">
+
+        <!--------------------immutable left part-------------------->
+
         <div class="col-4">
-            <input type="text" placeholder="Search for a Github user..." ng-model="searchQuery"
+            <input type="text" placeholder="Search..." ng-model="searchQuery"
                    ng-model-options="{debounce:1000}" ng-change="limitReset()" class="search-input">
-            <a href="/?search={{searchQuery}}" ng-click="find()">Search</a>
+            <a href="/search?query={{searchQuery}}" class="btn-search">Search</a>
         </div>
-        <div class="col-8 d-flex flex-column justify-content-center">
-            <div class="start-page" ng-if="searchQuery === ''">
-                <p>We have no photos for you now. Please, search for a new user.</p>
-            </div>
 
-            <div class="image-container">
-                <div class="image-item" ng-repeat="photo in photos | limitTo: limit">
-                    <img src="{{photo.urls.small}}" alt="item">
-                </div>
-            </div>
-
-            <div class="btn-container align-self-center" ng-if="searchQuery">
-                <button class="btn-more" ng-click="getMore($event)">More</button>
-            </div>
+        <!--------------------changeable right part-------------------->
+        <div ng-view class="col-8 align-items-center d-flex flex-column justify-content-center" >
         </div>
+
+
     </section>
-    <footer class="footer container-fluid" ng-if="searchQuery === ''">
+    <footer class="footer container-fluid" ng-if="!searchQuery">
         <div class="row justify-content-center">
             <div class="col-1">
                 <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}"><i
@@ -70,11 +67,13 @@
     </footer>
 </div>
 
-
+<!--------------------angular scripts-------------------->
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
+
+
+<!--------------------another scripts-------------------->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -86,9 +85,11 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+<!--------------------controllers-------------------->
+
 <script src="app.js"></script>
 <script src="controllers/controllers.js"></script>
-<!--<script src="controllers/mainController.js"></script>-->
+<script src="controllers/mainController.js"></script>
 <script src="controllers/photoDataController.js"></script>
 
 <script src="core/version/version.js"></script>

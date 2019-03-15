@@ -35,6 +35,22 @@
     overflow: hidden;
 }
 
+/*.btn-search{*/
+    /*width: 3rem;*/
+    /*height: 2rem;*/
+    /*font-weight: lighter;*/
+    /*color:black;*/
+/*}*/
+
+/*.btn-search:hover, .btn-search:focus{*/
+    /*text-decoration: none;*/
+    /*background-color: #e2e2e2;*/
+/*}*/
+
+/*.btn-search:active{*/
+    /*background-color: #93a8fc;*/
+/*}*/
+
 .start-page {
     font-size: 2rem;
     text-align: center;

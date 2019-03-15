@@ -1,0 +1,9 @@
+<div class="image-container">
+    <div class="image-item" ng-repeat="photo in photos | limitTo: limit">
+        <img src="{{photo.urls.small}}" alt="item">
+    </div>
+</div>
+
+<div class="btn-container d-flex align-self-center" ng-if="photos.length">
+    <button class="btn-more" ng-click="getMore($event)">More</button>
+</div>

@@ -1,1 +1,1 @@
-var app = angular.module('app.controllers', ['app.controllers.data']);
+var app = angular.module('app.controllers', ['app.controllers.main']);
