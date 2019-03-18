@@ -9,12 +9,17 @@
     "angular": "^1.7.5",
     "angular-loader": "^1.7.5",
     "angular-route": "^1.7.5",
-    "html5-boilerplate": "0.0.1"
+    "browser-sync": "^2.26.3",
+    "connect-history-api-fallback": "^1.6.0",
+    "html5-boilerplate": "0.0.1",
+    "serve-static": "^1.13.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.7.5",
     "bootstrap": "^4.3.1",
     "cpx": "^1.5.0",
+    "gulp": "^4.0.0",
+    "gulp-connect": "^5.7.0",
     "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "jquery": "^1.9.1",

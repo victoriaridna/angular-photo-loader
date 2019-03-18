@@ -3,6 +3,13 @@
         <img src="{{photo.urls.small}}" alt="item">
     </div>
 </div>
+<div class="image-container">
+    <div class="image-item" ng-repeat="newPhoto in newPhotos | limitTo: limit">
+        <img src="{{newPhoto.urls.small}}" alt="item">
+    </div>
+</div>
+
+<div ng-if="!photos.length" class="loading"><img src="http://s018.radikal.ru/i527/1607/3d/2dd8353d01b2.gif"></div>
 
 <div class="btn-container d-flex align-self-center" ng-if="photos.length">
     <button class="btn-more" ng-click="getMore($event)">More</button>

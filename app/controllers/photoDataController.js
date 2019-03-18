@@ -2,43 +2,41 @@
 var app = angular.module('app.controllers.data', []);
 
 
-app.controller('photoDataController', function ($scope, $location, $http) {
+app.controller('photoDataController', function ($scope, $location, $http, $routeParams, $route) {
+
+        $scope.setHide();
+
+        var clientId = '39f1966a283cb51f38e7371c5e0ee9f785eb5e4bedf4b22c8a93be4aeb57d13e';
+
+        var search = $routeParams.query;
+
+        var page = $routeParams.page;
+
+        console.log($scope.pageCounter);
 
 
-        //taking search parameter from url
-        var search = $location.search().query;
+        $scope.$watch('$routeParams', function () {
 
-        //looking for changes in input
-        $scope.$watch('searchQuery', function (newValue) {
-
-            //setting new query parameter in url
-            $location.search('query', newValue);
-
-            //if new query parameter is undefined go to start page
-            if (!newValue) {
-                $scope.reloadFunc();
-            }
-
-            //getting data from unsplash
-            return $http.get('https://api.unsplash.com/search/photos?client_id=' + $scope.clientId + '&query=' + search)
+            return $http.get('https://api.unsplash.com/search/photos?client_id=' + clientId + '&query=' + search + '&page=' + page)
                 .then(function (response) {
-                        //throw data to the scope
                         $scope.photos = response.data.results;
                     }
                 );
         });
 
 
-        //button more function: increading limit of displayed photos
         $scope.getMore = function (event) {
             $scope.limit += 2;
-            //disabling btn if limit equals 10
-            if ($scope.limit === 10) {
-                var btn = event.target;
-                btn.innerHTML = 'That\'s all';
-                btn.disabled = true;
-                btn.style.color = '#000';
-                btn.style.border = 'none';
+            if ($scope.limit % 10 === 0) {
+                var newPage = ++$routeParams.page;
+                $route.updateParams({page: newPage.toString()});
+                $scope.limit += 2;
+
+                // var btn = event.target;
+                // btn.innerHTML = 'That\'s all';
+                // btn.disabled = true;
+                // btn.style.color = '#000';
+                // btn.style.border = 'none';
             }
         };
 

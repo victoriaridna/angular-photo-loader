@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>Unsplash Analog</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,30 +33,29 @@
         <!--------------------immutable left part-------------------->
 
         <div class="col-4">
-            <input type="text" placeholder="Search..." ng-model="searchQuery"
-                   ng-model-options="{debounce:1000}" ng-change="limitReset()" class="search-input">
-            <a href="/search?query={{searchQuery}}" class="btn-search">Search</a>
+            <input type="text" placeholder="Search..." ng-model="searchQuery" ng-change="limitReset()" class="search-input">
+            <a href="/search?page={{pageCounter}}&query={{searchQuery}}"  ng-model-options="{debounce:2000}" class="btn-search"><i class="fa fa-search"></i></a>
         </div>
 
         <!--------------------changeable right part-------------------->
-        <div ng-view class="col-8 align-items-center d-flex flex-column justify-content-center" >
+        <div ng-view class="col-8 b align-items-center d-flex flex-column justify-content-center">
         </div>
 
 
     </section>
-    <footer class="footer container-fluid" ng-if="!searchQuery">
+    <footer class="footer container-fluid" ng-hide="hideFooter">
         <div class="row justify-content-center">
             <div class="col-1">
-                <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}"><i
-                    class="fa fa-twitter"></i></a>
+                <a href="https://www.twitter.com" class="icons" ng-style="{'background-color': '#1da1f2'}">
+                    <i class="fa fa-twitter"></i></a>
             </div>
             <div class="col-1 offset-1">
-                <a href="https://www.facebook.com" class="icons" ng-style="{'background-color': '#3b5998'}"><i
-                    class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com" class="icons" ng-style="{'background-color': '#3b5998'}">
+                    <i class="fa fa-facebook"></i></a>
             </div>
             <div class="col-1 offset-1">
-                <a href="https://www.youtube.com" class="icons" ng-style="{'background-color': '#c4302b'}"><i
-                    class="fa fa-youtube-play"></i></a>
+                <a href="https://www.youtube.com" class="icons" ng-style="{'background-color': '#c4302b'}">
+                    <i class="fa fa-youtube-play"></i></a>
             </div>
         </div>
         <div class="row justify-content-center">
