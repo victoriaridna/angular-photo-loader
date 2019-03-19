@@ -2,44 +2,38 @@
 var app = angular.module('app.controllers.data', []);
 
 
-app.controller('photoDataController', function ($scope, $location, $http, $routeParams, $route) {
+app.controller('photoDataController', function ($scope, $location, $http, $routeParams) {
 
         $scope.setHide();
 
         var clientId = '39f1966a283cb51f38e7371c5e0ee9f785eb5e4bedf4b22c8a93be4aeb57d13e';
 
         var search = $routeParams.query;
+        var page = 1;
 
-        var page = $routeParams.page;
+        $scope.$emit('setQuery', $routeParams.query);
 
-        console.log($scope.pageCounter);
+        $scope.photos = [];
+        $scope.$on('$viewContentLoaded', getData);
 
-
-        $scope.$watch('$routeParams', function () {
-
+        function getData() {
             return $http.get('https://api.unsplash.com/search/photos?client_id=' + clientId + '&query=' + search + '&page=' + page)
                 .then(function (response) {
-                        $scope.photos = response.data.results;
+                        $scope.loadScroll = false;
+                        $scope.photos = $scope.photos.concat(Array.from(response.data.results));
                     }
                 );
-        });
+        }
 
+        $scope.loadScroll = false;
 
-        $scope.getMore = function (event) {
-            $scope.limit += 2;
+        $scope.loadMore = function () {
+            $scope.limit += 5;
             if ($scope.limit % 10 === 0) {
-                var newPage = ++$routeParams.page;
-                $route.updateParams({page: newPage.toString()});
-                $scope.limit += 2;
-
-                // var btn = event.target;
-                // btn.innerHTML = 'That\'s all';
-                // btn.disabled = true;
-                // btn.style.color = '#000';
-                // btn.style.border = 'none';
+                $scope.loadScroll = true;
+                ++page;
+                getData()
             }
-        };
-
+        }
     }
-)
-;
+);

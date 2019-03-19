@@ -34,7 +34,7 @@
 
         <div class="col-4">
             <input type="text" placeholder="Search..." ng-model="searchQuery" ng-change="limitReset()" class="search-input">
-            <a href="/search?page={{pageCounter}}&query={{searchQuery}}"  ng-model-options="{debounce:2000}" class="btn-search"><i class="fa fa-search"></i></a>
+            <a href="/search?query={{searchQuery}}" ng-model-options="{debounce:2000}" class="btn-search"><i class="fa fa-search"></i></a>
         </div>
 
         <!--------------------changeable right part-------------------->
@@ -70,6 +70,7 @@
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-animate.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.js'></script>
 
 
 <!--------------------another scripts-------------------->
@@ -83,6 +84,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 
 <!--------------------controllers-------------------->
 

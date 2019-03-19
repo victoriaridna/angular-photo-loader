@@ -1,16 +1,11 @@
-<div class="image-container">
-    <div class="image-item" ng-repeat="photo in photos | limitTo: limit">
+
+<div infinite-scroll="loadMore()" infinite-scroll-disabled='loadScroll'  class="image-container">
+    <div class="image-item" ng-repeat="photo in photos  | limitTo: limit track by photo.id" >
         <img src="{{photo.urls.small}}" alt="item">
-    </div>
-</div>
-<div class="image-container">
-    <div class="image-item" ng-repeat="newPhoto in newPhotos | limitTo: limit">
-        <img src="{{newPhoto.urls.small}}" alt="item">
     </div>
 </div>
 
 <div ng-if="!photos.length" class="loading"><img src="http://s018.radikal.ru/i527/1607/3d/2dd8353d01b2.gif"></div>
 
-<div class="btn-container d-flex align-self-center" ng-if="photos.length">
-    <button class="btn-more" ng-click="getMore($event)">More</button>
-</div>
+<div ng-show='loadScroll' class="loading"><img src="https://thumbs.gfycat.com/PresentSomeAfricanjacana-small.gif" width="30px" height="30px"></div>
+

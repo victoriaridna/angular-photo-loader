@@ -2,16 +2,19 @@
 
 var app = angular.module('app.controllers.main', ['app.controllers.data']);
 
-app.controller('mainController', function ($location, $scope) {
+app.controller('mainController', function ($location, $scope, $routeParams ) {
+
+    $scope.$on('setQuery', function (event,query) {
+        $scope.searchQuery = query.toString()
+    });
 
     $scope.setHide = function () {
         $scope.hideFooter = true;
     };
 
-    $scope.limit = 4;
+    $scope.limit = 10;
 
     $scope.limitReset = function () {
-        $scope.limit = 4;
-        $scope.pageCounter = 1;
+        $scope.limit = 10;
     };
 });
