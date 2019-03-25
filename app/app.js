@@ -6,16 +6,17 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
         enabled: true,
         requireBase: false,
     });
+
     $routeProvider.when('/', {
-        templateUrl: '../templates/startPageTemplate',
+        templateUrl: 'templates/startPageTemplate.html',
         controller: 'mainController'
     })
         .when('/search', {
-            templateUrl: '../templates/photoDataTemplate',
+            templateUrl:'templates/photoDataTemplate.html',
             controller: 'photoDataController'
         })
         .otherwise({
-            redirectTo: '/',
+                redirectTo: '/',
             }
         );
 }]);

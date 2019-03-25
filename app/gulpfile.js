@@ -11,7 +11,7 @@ gulp.task('serve', function () {
             baseDir: "app",
             middleware: [
                 serveStatic('app', {extensions: ['html']}),
-                history()
+                // history()
             ],
         },
         notify: false,
