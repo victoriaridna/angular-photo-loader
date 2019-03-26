@@ -12,6 +12,8 @@
     "browser-sync": "2.26.3",
     "connect-history-api-fallback": "1.6.0",
     "electron": "2.0.0",
+    "electron-easy-spellcheck": "1.0.1",
+    "electron-rebuild": "1.8.4",
     "html5-boilerplate": "0.0.1",
     "serve-static": "1.13.2"
   },
